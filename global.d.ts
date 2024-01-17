@@ -1,1 +1,0 @@
-declare module "*.modules.css";
