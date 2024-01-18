@@ -1,41 +1,56 @@
 /*
 DLL
 */
-
-.rumah {
-  position: relative;
-  height: 85px;
-  width: 85px;
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-.dot {
+
+body { 
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; 
+}
+
+.tinggi {
+  height: calc("100vh - 150px") !important;
+}
+
+
+.rumah {
+  position: absolute;
+}
+
+.dot {  
   height: 85px !important;
   width: 85px !important;
   background-color: #bbb;
 }
 .satu {
-  top: -90px;
-  right: -53px;
+  top: 200px;
 }
 
 .dua {
-  top: -70px;
-  right: -198px;
+  top: 280px;
+  right: 5px;
 }
 
 .tiga {
-  top: -155px;
-    left: -85px;
+  top: 280px;
+  left: 5px;
 }
 
 .empat {
-  top: -80px;
-    left: -35px;
+  bottom: 200px;
+  left: 35px;
 }
 
 .lima {
-  top: -163px;
-  right: -145px;
+  bottom: 200px;
+  right: 35px;
 }
 
 .coba {
@@ -75,7 +90,8 @@ Animasi
 }
 
 .spinning {
-  animation: glow 3s infinite ease-in-out;
+  margin: 0;
+  animation: glow 4s infinite ease-in-out;
   }
 
   .typewriter{

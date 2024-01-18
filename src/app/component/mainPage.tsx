@@ -1,20 +1,22 @@
 import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { Avatar, Box, Typography, Grid } from "@mui/material";
+import { Avatar, Box, Typography, BottomNavigation, BottomNavigationAction } from "@mui/material";
 import { blue } from "@mui/material/colors";
 import "../styles/animation.css";
-import { FamilyRestroom, Favorite, Watch } from "@mui/icons-material";
 import LingkarKecil from "./LingkarKecil";
+import Stack from '@mui/material/Stack';
+import { Dispatch, SetStateAction } from "react";
+import RestoreIcon from '@mui/icons-material/Restore';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 export default function MainPage({
-  changee,
   klikDs,
   dsdot,
   hoverTouch,
   hoverEnd,
-  title
+  title,
 }: {
-  changee: VoidFunction;
   klikDs: VoidFunction;
   dsdot: boolean;
   hoverTouch: {(keMana:string):void};
@@ -22,55 +24,41 @@ export default function MainPage({
   title: string;
 }) {
   return (
-    <Grid
-      container
-      spacing={-2}
-      direction="row"
-      justifyContent="center"
-      alignItems="center"
+    <Stack
+    justifyContent="center"
+    alignItems="center"
+    spacing={0}
+      height={'100vh'}
+      width={"100vw"}
     >
-      <Grid item xs={12}>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          minHeight="87vh"
-          paddingLeft="15px"
-        >
-          <Typography
+      
+      <Typography
+            
             variant="h3"
             color="initial"
             style={{
-              marginTop: "-15px",
               paddingBottom: "20px",
-              transform: dsdot ? "translateY(0px)" : "translateY(-90px)",
-              transition: "all 1s",
+              transform : dsdot?'translateY(-50px)':'translateY(-110px)',
+              transition: 'all 1s'
             }}
           >
             {title}
           </Typography>
-
-          <div
+      
+      
+      <div
+      
             style={{
-              width: "200px",
-              height: "200px",
-              fontSize: "4em",
+              marginTop:'-45px'
             }}
             onClick={klikDs}
             className={dsdot ? "" : "coba"}
           >
-             <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={1} />
-             <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={2} />
-             <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={3} />
-             <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={4} />
-             <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={5} />
+             
             <Avatar
               style={{
                 width: "200px",
                 height: "200px",
-                position: "absolute",
-                top: dsdot ? "200px" : "0",
               }}
               sx={{ bgcolor: blue[800] }}
               className={dsdot ? "spinning" : ""}
@@ -84,21 +72,31 @@ export default function MainPage({
               />
             </Avatar>
           </div>
-        </Box>
-      </Grid>
-      <Grid item xs={1}/>
-      <Grid item xs={1}>
+        <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={1} />
+        <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={2} />
+        <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={3} />
+        <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={4} />
+        <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={5} />
+      
+      {/*
+      <Stack
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      spacing={3}>
         <NavigateNextIcon
           style={{
             transform: "scale(3) rotate(180deg)",
             filter: "contrast(0)",
           }}
         />
-      </Grid>
-      <Grid item xs={2} />
-      <Grid item xs={1} onClick={changee}>
-        <NavigateNextIcon style={{ transform: "scale(3)" }} />
-      </Grid>
-    </Grid>
+        <div>
+          
+        </div>
+        <NavigateNextIcon style={{ transform: "scale(3)" }} onClick={changee} />
+      </Stack>  
+        
+    */}
+    </Stack>
   );
 }

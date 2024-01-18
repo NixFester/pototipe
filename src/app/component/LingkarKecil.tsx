@@ -39,15 +39,17 @@ export default function LingkarKecil({hoverTouch,hoverEnd,dsdot,nomor}: {hoverTo
         <Link className={namaKelas}
             onTouchEnd={hoverEnd}
             onTouchStart={()=>{
-              hoverTouch(namaHover)
+              if (!dsdot) {
+                hoverTouch(namaHover)
+              }
              }}
-             href="/diary"
+             href='/diary'
+             style={{ transform: dsdot ? "scale(0)" : "scale(1)", transition: "all 1s"  }}
              >
              <Avatar
-              style={{ transform: dsdot ? "scale(0)" : "scale(1)" }}
               className="dot"
               src={sources}
-              sx={{ transition: "all 1s" }}
+              sx={{ }}
             >
               {isian}
               </Avatar>

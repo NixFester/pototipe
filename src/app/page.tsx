@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import LoginIcon from "@mui/icons-material/Login";
 import StartIcon from "./component/StartIcon";
 import HiScreen from "./component/HiScreen";
+import Navigasi from "./component/navigasi";
 
 export default function Home() {
   const [as, setAs] = useState(true);
@@ -68,16 +69,14 @@ export default function Home() {
         }}*/
   return (
     <div>
-      <div style={{ display: onBs ? "none" : "block" }} className="sil1">
-        <div style={change ? { display: "none" } : {}}>
-          <MainPage changee={changee} klikDs={klikDs} dsdot={dsdot} hoverTouch={hoverTouch} hoverEnd={hoverEnd} title={title}  />
-        </div>
-        <div style={change ? {} : { display: "none" }}>
-          <Games changee={changee} klikDs={klikDs} dsdot={dsdot} />
-        </div>
+      <div style={onBs?{display:'none'}:{}} className="sil1">
+          <MainPage klikDs={klikDs} dsdot={dsdot} hoverTouch={hoverTouch} hoverEnd={hoverEnd} title={title}  />
+          <Navigasi />
+
       </div>
       <HiScreen keMainPage={keMainPage} onsec={onsec} onBs={onBs} bs={bs} nama={nama} />
       <StartIcon klikLanjut={klikLanjut} as={as} onsec={onsec} />
+      
     </div>
   );
 }
