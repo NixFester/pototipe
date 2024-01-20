@@ -13,17 +13,17 @@ export default function LingkarKecil({hoverTouch,hoverEnd,dsdot,nomor}: {hoverTo
         case (1):
             namaKelas = "rumah satu"
             namaHover = "Keluarga"
-            isian =  (<FamilyRestroom style={{transform:'scale(2.0)'}}/>)
+            isian =  (<FamilyRestroom className="gede"/>)
             break
         case (2):
             namaKelas = "rumah dua"
             namaHover = "Percintaan"
-            isian =  (<Favorite style={{transform:'scale(2.0)'}} />)
+            isian =  (<Favorite className='gede' />)
             break
         case (3):
             namaKelas = "rumah tiga"
             namaHover = "Masa Depan"
-            isian =  (<Watch style={{transform:'scale(2.0)'}} />)
+            isian =  (<Watch className="gede" />)
             break
         case (4):
             namaKelas = "rumah empat"
@@ -48,6 +48,7 @@ export default function LingkarKecil({hoverTouch,hoverEnd,dsdot,nomor}: {hoverTo
              >
              <Avatar
               className="dot"
+              imgProps={{className : 'gedeImg'}}
               src={sources}
               sx={{ }}
             >

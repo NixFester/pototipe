@@ -8,8 +8,10 @@ import RadioEmoticon from "./RadioEmoticon";
 import TextField from '@mui/material/TextField';
 import Rating from '@mui/material/Rating';
 import Hubungan from "./Hubungan";
-import IconButton from '@mui/material/IconButton'
+import Button from '@mui/material/Button'
 import AddIcon from '@mui/icons-material/Add';
+import { Stack } from "@mui/material";
+import SaveIcon from '@mui/icons-material/Save';
 
 export default function IsianAkardia({
   expanded,
@@ -41,6 +43,14 @@ export default function IsianAkardia({
     newAlignment: string,
   ) => void 
 }) {
+    const checkNama = (fNama:string,nomor:number)=>{
+        if(localStorage.getItem(`${fNama}${nomor}`)) {
+            nomor++
+            checkNama(fNama,nomor)
+        }
+        return `${fNama}${nomor}`
+    }
+
     let isiAkordia = (<div></div>)
 
   switch (panel) {
@@ -103,17 +113,33 @@ export default function IsianAkardia({
             </div>
             )
         break
-    default :
-        isiAkordia = (
-        <div>
+    case ('panel10') :
+        isiAkordia = 
             <Typography>
                 Kamu Keren Banget!😁 Kamu sudah bisa sampai sini. Kamu hebat, kamu udah ngelewatin semua ini dan kamu pantas untuk mendapatkan semua kebahagiaan!!!
             </Typography>
-            <IconButton aria-label="buat" onClick={setDiary}>
-              <AddIcon />
-            </IconButton>
-            <TextField id="filled-basic" label="Diaryku" variant="outlined" multiline fullWidth value={diary} onChange={handleRadio}/>
-        </div>)
+            
+        break
+    default:
+        isiAkordia = (
+            <Stack spacing={4}>
+            <Button variant="contained" aria-label="buat" startIcon={(<AddIcon />)} onClick={setDiary}>
+              {diary==""?"Buat Diary": "Reset Diary"}
+            </Button>
+            <TextField style={diary== ""?{display: 'none'}: {}} id="filled-basic" label="Diaryku" variant="outlined" multiline fullWidth value={diary} onChange={handleRadio}/>
+            <Button style={diary== ""?{display: 'none'}: {}}  variant="contained" aria-label="simpan" startIcon={(<SaveIcon />)}
+            onClick={()=>{
+                const fullNama = "diary"
+                let nomorDiary = 1
+                const simpanDiary =  checkNama(fullNama,nomorDiary)
+                if (diary) {
+                    localStorage.setItem(simpanDiary, diary)
+                }
+            }}>
+              Simpan diary
+            </Button>
+        </Stack>
+        )
     
 
   }

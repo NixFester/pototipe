@@ -17,7 +17,7 @@ export default function Navigasi() {
             setNavgat(newValue);
           }}
         >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+          <BottomNavigationAction label="Jurnalku" icon={<RestoreIcon />} href="/jurnal" />
           <BottomNavigationAction label="Beranda" icon={<HomeIcon />} href="/" />
           <BottomNavigationAction label="Archive" icon={<LocationOnIcon />} />
         </BottomNavigation>

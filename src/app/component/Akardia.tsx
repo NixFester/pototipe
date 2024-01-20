@@ -20,13 +20,12 @@ export default function CustomizedAccordions({expanded, handleChange}:{
     setDiary(
       `Hi Diary
       Aku lagi ${EmoticonValue} nih
-      Tau ngga, kalau ${sharingValue}
-      Untuk Hari ini aku kasih bintang ${nilaiValue}
-      Ah, hubunganku sekarang ${alignment} dengan bestieku.
-      ${konflikVal}
-      dan ${negVal}
-      ... yah kenangan terindahku denganya itu ${fikVal}
-      ${unkapVal}
+      Tau ngga, hari ini itu ${sharingValue}
+      Oh iya, hubunganku ${alignment} bestieku nih.
+      Dia itu ${konflikVal} dan aku gak suka sama ${negVal} dia. 
+      Seandainya saja kita bisa kembali ke masa lalu seperti saat kita ${fikVal}
+      Kalau dia ada di sini aku ingin berkata ${unkapVal} padanya
+      ${nilaiValue}⭐ untuk hari ini.
       Dah, terimakasih diary udah mau dengerin aku`
       )
   }
@@ -86,9 +85,11 @@ export default function CustomizedAccordions({expanded, handleChange}:{
       <IsianAkardia expanded={expanded} handleChange={handleChange} panel="panel8" 
       judul='👀' />
       <IsianAkardia expanded={expanded} handleChange={handleChange} panel="panel9" 
-      judul='Pasti ada dong kenangan terindah bersama bestie mu?' Value={unkapVal} handleRadio={handleUngkap} />
+      judul='Jika teman kamu disini, apa yang ingin kamu ungkapin?' Value={unkapVal} handleRadio={handleUngkap} />
       <IsianAkardia expanded={expanded} handleChange={handleChange} panel="panel10" 
       judul='🥰' diary={Diary} setDiary={buatDiary} handleRadio={handleDiary} />
+      <IsianAkardia expanded={expanded} handleChange={handleChange} panel="panel11" 
+      judul='Hasil Diary Kamu' diary={Diary} setDiary={buatDiary} handleRadio={handleDiary} />
     </div>
   );
 }

@@ -56,27 +56,23 @@ export default function MainPage({
           >
              
             <Avatar
-              style={{
-                width: "200px",
-                height: "200px",
-              }}
               sx={{ bgcolor: blue[800] }}
-              className={dsdot ? "spinning" : ""}
+              className={`ikonBesar ${dsdot ? "spinning" : ""}`}
 
             >
               <AssignmentRoundedIcon
-                style={{
-                  width: "120px",
-                  height: "120px",
-                }}
+                className="gede2"
               />
             </Avatar>
           </div>
-        <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={1} />
+          <div className="rummahdiv">
+          <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={1} />
         <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={2} />
         <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={3} />
         <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={4} />
         <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={5} />
+          </div>
+        
       
       {/*
       <Stack

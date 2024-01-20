@@ -19,38 +19,65 @@ body {
   height: calc("100vh - 150px") !important;
 }
 
+.ikonBesar {
+  width: 160px !important;
+  height: 160px !important;
+}
+
 
 .rumah {
   position: absolute;
+  pointer-events: auto;
+}
+
+
+.rummahdiv {
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  margin-top: 35px;
+  pointer-events: none
+}
+
+.gede {
+  transform: scale(1.6);
+}
+.gede2 {
+  transform: scale(4.0);
+}
+
+.gedeImg {
+  transform: scale(0.8);
 }
 
 .dot {  
-  height: 85px !important;
-  width: 85px !important;
+  height: 60px !important;
+  width: 60px !important;
   background-color: #bbb;
 }
 .satu {
-  top: 200px;
+  top: -70px;
+    right: 50px;
 }
 
 .dua {
-  top: 280px;
-  right: 5px;
+    left: -65px;
+    top: 10px;
 }
 
 .tiga {
-  top: 280px;
-  left: 5px;
+  right: -65px;
+  top: 10px;
 }
 
 .empat {
-  bottom: 200px;
-  left: 35px;
+  bottom: -40px;
+  left: -20px;
 }
 
 .lima {
-  bottom: 200px;
-  right: 35px;
+  bottom: -40px;
+  right: -20px;
 }
 
 .coba {
