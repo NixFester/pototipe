@@ -25,7 +25,7 @@ export default function CustomizedAccordions({expanded, handleChange}:{
       Dia itu ${konflikVal} dan aku gak suka sama ${negVal} dia. 
       Seandainya saja kita bisa kembali ke masa lalu seperti saat kita ${fikVal}
       Kalau dia ada di sini aku ingin berkata ${unkapVal} padanya
-      ${nilaiValue}⭐ untuk hari ini.
+      bintang ${nilaiValue} untuk hari ini.
       Dah, terimakasih diary udah mau dengerin aku`
       )
   }

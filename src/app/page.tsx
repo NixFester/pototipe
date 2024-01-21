@@ -1,13 +1,7 @@
 "use client";
 import MainPage from "./component/mainPage";
-import Games from "./component/Games";
 import "./styles/animation.css";
 import { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import LoginIcon from "@mui/icons-material/Login";
 import StartIcon from "./component/StartIcon";
 import HiScreen from "./component/HiScreen";
 import Navigasi from "./component/navigasi";
@@ -18,17 +12,14 @@ export default function Home() {
   const [bs, setBs] = useState(true);
   const [onBs, setOnBs] = useState(true);
   const [nama, setNama] = useState("no");
-  const [change, setChange] = useState(false);
   const [dsdot,setDsdot] = useState(true);
   const [title,setTitle] = useState("Diary")
+  const jam = new Date()
+
   
   const klikDs: VoidFunction = () =>{
     setDsdot((prev)=>!prev)
   }
-  const changee: VoidFunction = () => {
-    setChange((prev) => !prev);
-    console.log(change);
-  };
 
   const klikLanjut: VoidFunction = () => {
     setTimeout(() => {
@@ -38,9 +29,10 @@ export default function Home() {
   }
 
   const keMainPage:VoidFunction = () => {
-    if (nama !== "no") {
+    if (nama !== "no" ) {
       setTimeout(() => {
         setOnBs((prev) => !prev);
+        localStorage.setItem('tgl', `${jam.getHours() + 1}`)
       }, 900);
       setBs((prev) => !prev);
     }
@@ -56,10 +48,23 @@ export default function Home() {
 
   useEffect(() => {
     const namabuat = localStorage.getItem("nama");
-    if (namabuat != null) {
+    if (namabuat) {
       setNama(namabuat);
     }
+    const tgl = new Date()
+    const tglKunjungan = localStorage.getItem('tgl')
+    if (tglKunjungan && Number(tglKunjungan) < tgl.getHours()) {
+        localStorage.removeItem('tgl')
+    } else if (tglKunjungan && Number(tglKunjungan) >= tgl.getHours()) {
+      setBs(false)
+      setAs(false)
+      setOnBs(false)
+      Setonsec(true)
+    }
+    
   }, []);
+
+  
 
   /*onClick={() => {
           setTimeout(() => {

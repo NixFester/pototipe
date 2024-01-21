@@ -5,7 +5,6 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 
 export default function Jurnal() {
-    const isian = localStorage.getItem('diary1')
     const [diaryArr,setDiaryArr] = useState<(string|null)[]>()
     const router = useRouter()
     const Refresh = ()=>{
