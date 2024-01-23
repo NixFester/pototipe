@@ -9,15 +9,18 @@ export default function Jurnalnya({isiDiary, noDiary,refresh}:{isiDiary:string, 
     const [ganti,setGanti] = useState('')
     return (
         <Stack spacing={2}>
-            <Paper square={false} elevation={4}> 
+            <Paper square={false} elevation={4} sx={{paddingTop: '10px'}} > 
                 <TextField onChange={(e)=>{
                     
                         setGanti(e.target.value)
                     
                 }} 
-                label={'Diary ke-1'} style={ganti !== ''?{}:{pointerEvents : 'none'}} value={ganti !== ''?ganti:isiDiary} multiline fullWidth variant="filled"/>
+                sx={{color:'white !important'}}
+                label={'Diary ke-1'} style={ganti !== ''?{}:{pointerEvents : 'none'}} value={ganti !== ''?ganti:isiDiary} multiline fullWidth variant="filled" />
             </Paper>
-            <Paper>
+            <Stack direction="row"
+  justifyContent="center"
+  alignItems="center">
                 <Stack spacing={2} direction="row">
                 <Button variant="contained" startIcon={ganti !== ''?<SaveIcon/>:<EditIcon/>}
                 onClick={()=>{
@@ -32,7 +35,7 @@ export default function Jurnalnya({isiDiary, noDiary,refresh}:{isiDiary:string, 
                 <Button href={`https://wa.me/6281290167102?text=${encodeURI(isiDiary)}`}
                  variant="contained" endIcon={<WhatsAppIcon/>} sx={{fontSize: '0.8em'}}>Curhat ke Ahli-nya</Button>
                 </Stack>
-            </Paper>
+            </Stack>
             
         </Stack>
     )

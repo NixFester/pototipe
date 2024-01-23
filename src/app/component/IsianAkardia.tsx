@@ -146,7 +146,7 @@ export default function IsianAkardia({
 
 
   return (
-    <Accordion expanded={expanded === panel} onChange={handleChange(panel)}>
+    <Accordion expanded={expanded === panel} onChange={handleChange(panel)} elevation={3} sx={{backgroundColor: "#FAFAF9", color: "#373954"}}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls={`${panel}d-content`}

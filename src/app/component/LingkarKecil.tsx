@@ -44,7 +44,7 @@ export default function LingkarKecil({hoverTouch,hoverEnd,dsdot,nomor}: {hoverTo
               }
              }}
              href='/diary'
-             style={{ transform: dsdot ? "scale(0)" : "scale(1)", transition: "all 1s"  }}
+             style={{ transform: dsdot ? "scale(0)" : "scale(1)", transition: "all 1s" }}
              >
              <Avatar
               className="dot"

@@ -29,12 +29,15 @@ export default function StartIcon({
             backgroundColor: "red",
             fontSize: "4em",
           }}
+          imgProps={{
+            style: {transform: 'scale(1.5)'}
+          }}
+          src="/sua.png"
         >
-          H
         </Avatar>
-        <Typography variant="h6" color="initial">
+        <Typography variant="h5" mt="10px" >
           {" "}
-          Tekan tuk lanjut
+         Ketan
         </Typography>
       </Box>
     </div>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import StartIcon from "./component/StartIcon";
 import HiScreen from "./component/HiScreen";
 import Navigasi from "./component/navigasi";
+import { Paper } from "@mui/material";
 
 export default function Home() {
   const [as, setAs] = useState(true);
@@ -73,7 +74,7 @@ export default function Home() {
           setBs((prev) => !prev);
         }}*/
   return (
-    <div>
+    <div className="backgrund">
       <div style={onBs?{display:'none'}:{}} className="sil1">
           <MainPage klikDs={klikDs} dsdot={dsdot} hoverTouch={hoverTouch} hoverEnd={hoverEnd} title={title}  />
           <Navigasi />

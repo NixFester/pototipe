@@ -25,7 +25,7 @@ export default function HiScreen({keMainPage, onsec,onBs,bs,nama}:HiScreenObj) {
     >
       <Typography
         variant="h3"
-        color="initial"
+        color="inherit"
         className={
           bs ? "tracking-in-contract-bck" : "tracking-out-contract-bck"
         }
@@ -38,7 +38,7 @@ export default function HiScreen({keMainPage, onsec,onBs,bs,nama}:HiScreenObj) {
       </Typography>
       <Typography
         variant="h4"
-        color="initial"
+        color="inherit"
         className={
           bs ? "tracking-in-contract-bck" : "tracking-out-contract-bck"
         }

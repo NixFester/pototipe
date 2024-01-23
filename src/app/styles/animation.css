@@ -1,8 +1,13 @@
 /*
 DLL
 */
+
+chil
+
 html {
   box-sizing: border-box;
+  background-color: #FAFAF9;
+  color: #373954;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -13,6 +18,12 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh; 
+}
+
+.poiper {
+  height: 80px;
+  width: 80px;
+  position: absolute;
 }
 
 .tinggi {
@@ -53,7 +64,8 @@ body {
 .dot {  
   height: 60px !important;
   width: 60px !important;
-  background-color: #bbb;
+  background-color: #A6A4A4 !important;
+  color: #FAFAF9 !important;
 }
 .satu {
   top: -70px;
@@ -150,14 +162,14 @@ Animasi
 
 @keyframes glow {
   0% {
-    box-shadow: 0px 0px 10px 10px rgba(21,101,192,0.9);
+    box-shadow: 0px 0px 10px 10px rgba(55,57,58,0.9);
     transform:rotate(0deg);
   }
   50% {
-    box-shadow: 0px 0px 10px 0px rgba(21,101,192,0.9);
+    box-shadow: 0px 0px 10px 0px rgba(55,57,58,0.9);
   }
   100% {
-    box-shadow: 0px 0px 10px 10px rgba(21,101,192,0.9);
+    box-shadow: 0px 0px 10px 10px rgba(55,57,58,0.9);
     transform:rotate(360deg);
   }
 }

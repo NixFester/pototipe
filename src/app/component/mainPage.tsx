@@ -30,12 +30,12 @@ export default function MainPage({
     spacing={0}
       height={'100vh'}
       width={"100vw"}
+      zIndex={4}
     >
       
       <Typography
             
             variant="h3"
-            color="initial"
             style={{
               paddingBottom: "20px",
               transform : dsdot?'translateY(-50px)':'translateY(-110px)',
@@ -56,12 +56,15 @@ export default function MainPage({
           >
              
             <Avatar
-              sx={{ bgcolor: blue[800] }}
+              sx={{ bgcolor: "#373954" }}
               className={`ikonBesar ${dsdot ? "spinning" : ""}`}
 
             >
               <AssignmentRoundedIcon
                 className="gede2"
+                sx={{
+                  color: "#FAFAF9"
+                }}
               />
             </Avatar>
           </div>

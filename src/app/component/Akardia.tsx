@@ -1,3 +1,4 @@
+import { Stack } from '@mui/material';
 import IsianAkardia from './IsianAkardia';
 import { useState } from 'react';
 
@@ -67,7 +68,7 @@ export default function CustomizedAccordions({expanded, handleChange}:{
   };
 
   return (
-    <div>
+    <Stack spacing={1}>
       <IsianAkardia expanded={expanded} handleChange={handleChange} panel="panel1" 
       judul='Hei! Hari ini Apa Kabar?' Value={EmoticonValue} handleRadio={handleRadio} />
       <IsianAkardia expanded={expanded} handleChange={handleChange} panel="panel2" 
@@ -90,6 +91,6 @@ export default function CustomizedAccordions({expanded, handleChange}:{
       judul='🥰' diary={Diary} setDiary={buatDiary} handleRadio={handleDiary} />
       <IsianAkardia expanded={expanded} handleChange={handleChange} panel="panel11" 
       judul='Hasil Diary Kamu' diary={Diary} setDiary={buatDiary} handleRadio={handleDiary} />
-    </div>
+    </Stack>
   );
 }
