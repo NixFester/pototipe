@@ -32,7 +32,7 @@ export default function Jurnalnya({isiDiary, noDiary,refresh}:{isiDiary:string, 
                         setGanti(isiDiary)
                     }
                 }}>{ganti == ''?'Edit':'Simpan'}</Button>
-                <Button href={`https://wa.me/6281290167102?text=${encodeURI(isiDiary)}`}
+                <Button href={`https://wa.me/6282322868823?text=${encodeURI(isiDiary)}`}
                  variant="contained" endIcon={<WhatsAppIcon/>} sx={{fontSize: '0.8em'}}>Curhat ke Ahli-nya</Button>
                 </Stack>
             </Stack>
