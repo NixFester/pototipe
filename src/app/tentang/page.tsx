@@ -23,8 +23,8 @@ export default function Tentang() {
           <Box
             component="img"
             sx={{
-              height: 150,
-              width: 200,
+              height: 250,
+              width: 300,
               marginBottom: "10px",
             }}
             alt="The house from the offer."

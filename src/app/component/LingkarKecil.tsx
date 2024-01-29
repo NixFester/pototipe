@@ -11,16 +11,19 @@ export default function LingkarKecil({hoverTouch,hoverEnd,dsdot,nomor}: {hoverTo
     let namaHover = ""
     let isian = null
     let sources = ""
+    let href = ''
     switch (nomor) {
         case (1):
             namaKelas = "rumah satu"
             namaHover = "Keluarga"
             isian =  (<FamilyRestroom className="gede"/>)
+            href= '/keluarga'
             break
         case (2):
             namaKelas = "rumah dua"
             namaHover = "Percintaan"
             isian =  (<Favorite className='gede' />)
+            href = '/percintaan'
             break
         case (3):
             namaKelas = "rumah tiga"
@@ -31,6 +34,7 @@ export default function LingkarKecil({hoverTouch,hoverEnd,dsdot,nomor}: {hoverTo
             namaKelas = "rumah empat"
             namaHover = "Pertemanan"
             isian = (<FriendSVG className="gede"/>)
+            href ='/diary'
             break
         default:
             namaKelas = "rumah lima"
@@ -45,7 +49,7 @@ export default function LingkarKecil({hoverTouch,hoverEnd,dsdot,nomor}: {hoverTo
                 hoverTouch(namaHover)
               }
              }}
-             href='/diary'
+             href={href}
              style={{ transform: dsdot ? "scale(0)" : "scale(1)", transition: "all 1s" }}
              >
              <Avatar

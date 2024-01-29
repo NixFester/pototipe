@@ -30,6 +30,7 @@ interface IsiAkardia {
     event: React.MouseEvent<HTMLElement>,
     newAlignment: string
   ) => void;
+  tema : string
 }
 
 export default function IsianAkardia({
@@ -44,6 +45,7 @@ export default function IsianAkardia({
   handleAlignment,
   diary,
   setDiary,
+  tema
 }: IsiAkardia) {
   const checkNama = (fNama: string, nomor: number) => {
     if (localStorage.getItem(`${fNama}${nomor}`)) {
@@ -53,7 +55,6 @@ export default function IsianAkardia({
     return `${fNama}${nomor}`;
   };
 
-  let isiAkordia = <div></div>;
   const temaTulisan = {
     color: "#f6f3f6", 
   '& label': {color: "#f6f3f6"},
@@ -75,28 +76,211 @@ export default function IsianAkardia({
     },
 }
 
-  switch (panel) {
-    case "panel1":
-      isiAkordia = <RadioEmoticon value={Value} handleRadio={handleRadio} />;
-      break;
-    case "panel2":
-      isiAkordia = (
-        <div>
-          <TextField
-            inputProps={{ style: { color: "#f6f3f6" } }}
-            sx={temaTulisan}
-            id="filled-basic"
-            label="Sharing dong"
-            variant="outlined"
-            multiline
-            fullWidth
-            value={Value}
-            onChange={handleRadio}
+let isiAkordia = (
+  <Stack spacing={4}>
+    <Button
+      variant="contained"
+      aria-label="buat"
+      sx={{backgroundColor: "#e38b7a", color: "#f6f3f6", "&:hover" : {
+          backgroundColor: "#f6f3f6", color: "#bd4b4b"
+      }}}
+      startIcon={<AddIcon />}
+      onClick={setDiary}
+    >
+      {diary == "" ? "Buat Diary" : "Reset Diary"}
+    </Button>
+    <TextField
+    inputProps={{ style: { color: "#f6f3f6" } }}
+      style={diary == "" ? { display: "none" } : {}}
+      id="filled-basic"
+      label="Diaryku"
+      variant="outlined"
+      multiline
+      fullWidth
+      sx={temaTulisan}
+      value={diary}
+      onChange={handleRadio}
+    />
+    <Button
+      style={diary == "" ? { display: "none" } : {}}
+      variant="contained"
+      aria-label="simpan"
+      sx={{backgroundColor: "#e38b7a", color: "#f6f3f6", "&:hover" : {
+          backgroundColor: "#f6f3f6", color: "#bd4b4b"
+      }}}
+      startIcon={<SaveIcon />}
+      onClick={() => {
+        const fullNama = "diary";
+        let nomorDiary = 1;
+        const simpanDiary = checkNama(fullNama, nomorDiary);
+        if (diary) {
+          localStorage.setItem(simpanDiary, diary);
+        }
+      }}
+    >
+      Simpan diary
+    </Button>
+  </Stack>
+)
+
+  if (tema === 'persahabatan') {
+    switch (panel) {
+      case "panel1":
+        isiAkordia = <RadioEmoticon value={Value} handleRadio={handleRadio} />;
+        break;
+      case "panel2":
+        isiAkordia = (
+          <div>
+            <TextField
+              inputProps={{ style: { color: "#f6f3f6" } }}
+              sx={temaTulisan}
+              id="filled-basic"
+              label="Sharing dong"
+              variant="outlined"
+              multiline
+              fullWidth
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel3":
+        isiAkordia = (
+          <Rating
+            name="simple-controlled"
+            value={valNo}
+            onChange={(event, newValue) => {
+              if (setNilai) {
+                setNilai(newValue);
+              }
+            }}
+            sx={{color: 'white', }}
           />
-        </div>
-      );
-      break;
-    case "panel3":
+        );
+        break;
+      case "panel4":
+        isiAkordia = 
+        <Hubungan 
+        VSatu="Aman 🦾" 
+        VDua="Renggang 😥" 
+        VTiga="Renggang Banget 😭" 
+        Value={Value} 
+        handleAlignment={handleAlignment} />;
+        break;
+      case "panel5":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Cerita dong"
+              variant="outlined"
+              multiline
+              fullWidth
+              sx={temaTulisan}
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel6":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Sharing dong"
+              variant="outlined"
+              multiline
+              fullWidth
+              value={Value}
+              sx={temaTulisan}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel7":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Sharing dong"
+              variant="outlined"
+              multiline
+              fullWidth
+              value={Value}
+              sx={temaTulisan}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel8":
+        isiAkordia = (
+          <Typography>
+            Sebenarnya kamu Pengen ga sih? Berteman seperti di masa lalu. Gimana
+            sih Perasaan kamu sekarang ketika jauh dengan besti yang dulu, saat
+            kemana-mana selalu bareng?
+          </Typography>
+        );
+        break;
+      case "panel9":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Sharing dong"
+              variant="outlined"
+              multiline
+              fullWidth
+              value={Value}
+              sx={temaTulisan}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel10":
+        isiAkordia = (
+          <Typography>
+            Kamu Keren Banget!😁 Kamu sudah bisa sampai sini. Kamu hebat, kamu
+            udah ngelewatin semua ini dan kamu pantas untuk mendapatkan semua
+            kebahagiaan!!!
+          </Typography>
+        );
+  
+        break;
+    }
+  }
+
+  if (tema === 'keluarga') {
+    switch (panel) {
+      case "panel1":
+        isiAkordia = <RadioEmoticon value={Value} handleRadio={handleRadio} />;
+        break;
+      case "panel2":
+          isiAkordia = (
+            <div>
+              <TextField
+                inputProps={{ style: { color: "#f6f3f6" } }}
+                sx={temaTulisan}
+                id="filled-basic"
+                label="Bahagiakah? Banyak keseruan?"
+                variant="outlined"
+                multiline
+                fullWidth
+                value={Value}
+                onChange={handleRadio}
+              />
+            </div>
+          );
+          break;
+      case "panel3": 
       isiAkordia = (
         <Rating
           name="simple-controlled"
@@ -110,143 +294,249 @@ export default function IsianAkardia({
         />
       );
       break;
-    case "panel4":
-      isiAkordia = <Hubungan Value={Value} handleAlignment={handleAlignment} />;
-      break;
-    case "panel5":
-      isiAkordia = (
-        <div>
-          <TextField
-          inputProps={{ style: { color: "#f6f3f6" } }}
-            id="filled-basic"
-            label="Cerita dong"
-            variant="outlined"
-            multiline
-            fullWidth
-            sx={temaTulisan}
-            value={Value}
-            onChange={handleRadio}
-          />
-        </div>
-      );
-      break;
-    case "panel6":
-      isiAkordia = (
-        <div>
-          <TextField
-          inputProps={{ style: { color: "#f6f3f6" } }}
-            id="filled-basic"
-            label="Sharing dong"
-            variant="outlined"
-            multiline
-            fullWidth
-            value={Value}
-            sx={temaTulisan}
-            onChange={handleRadio}
-          />
-        </div>
-      );
-      break;
-    case "panel7":
-      isiAkordia = (
-        <div>
-          <TextField
-          inputProps={{ style: { color: "#f6f3f6" } }}
-            id="filled-basic"
-            label="Sharing dong"
-            variant="outlined"
-            multiline
-            fullWidth
-            value={Value}
-            sx={temaTulisan}
-            onChange={handleRadio}
-          />
-        </div>
-      );
-      break;
-    case "panel8":
-      isiAkordia = (
-        <Typography>
-          Sebenarnya kamu Pengen ga sih? Berteman seperti di masa lalu. Gimana
-          sih Perasaan kamu sekarang ketika jauh dengan besti yang dulu, saat
-          kemana-mana selalu bareng?
-        </Typography>
-      );
-      break;
-    case "panel9":
-      isiAkordia = (
-        <div>
-          <TextField
-          inputProps={{ style: { color: "#f6f3f6" } }}
-            id="filled-basic"
-            label="Sharing dong"
-            variant="outlined"
-            multiline
-            fullWidth
-            value={Value}
-            sx={temaTulisan}
-            onChange={handleRadio}
-          />
-        </div>
-      );
-      break;
-    case "panel10":
-      isiAkordia = (
-        <Typography>
-          Kamu Keren Banget!😁 Kamu sudah bisa sampai sini. Kamu hebat, kamu
-          udah ngelewatin semua ini dan kamu pantas untuk mendapatkan semua
-          kebahagiaan!!!
-        </Typography>
-      );
+      case "panel4":
+        isiAkordia = 
+        <Hubungan 
+        VSatu="Happy😄" 
+        VDua="biasa😐" 
+        VTiga="kesel🤬" 
+        Value={Value} 
+        handleAlignment={handleAlignment} />;
+        break;
+      case "panel5":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Cerita dong"
+              variant="outlined"
+              multiline
+              fullWidth
+              sx={temaTulisan}
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel6":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Cerita dong"
+              variant="outlined"
+              multiline
+              fullWidth
+              sx={temaTulisan}
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel7":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Karena..."
+              variant="outlined"
+              multiline
+              fullWidth
+              sx={temaTulisan}
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel8":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Benar ngga?"
+              variant="outlined"
+              multiline
+              fullWidth
+              sx={temaTulisan}
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel9":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Cerita dong"
+              variant="outlined"
+              multiline
+              fullWidth
+              sx={temaTulisan}
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel10":
+        isiAkordia = (
+          <Typography>
+            Kamu Keren Banget!😁 Kamu sudah bisa sampai sini. Kamu hebat, kamu
+            udah ngelewatin semua ini dan kamu pantas untuk mendapatkan semua
+            kebahagiaan!!!
+          </Typography>
+        );
+    }
+  }
 
-      break;
-    default:
+  if (tema === 'percintaan') {
+    switch (panel) {
+      case "panel1":
+        isiAkordia = <RadioEmoticon value={Value} handleRadio={handleRadio} />;
+        break;
+      case "panel2":
+          isiAkordia = (
+            <div>
+              <TextField
+                inputProps={{ style: { color: "#f6f3f6" } }}
+                sx={temaTulisan}
+                id="filled-basic"
+                label="Cerita dong"
+                variant="outlined"
+                multiline
+                fullWidth
+                value={Value}
+                onChange={handleRadio}
+              />
+            </div>
+          );
+          break;
+      case "panel3": 
       isiAkordia = (
-        <Stack spacing={4}>
-          <Button
-            variant="contained"
-            aria-label="buat"
-            sx={{backgroundColor: "#e38b7a", color: "#f6f3f6", "&:hover" : {
-                backgroundColor: "#f6f3f6", color: "#bd4b4b"
-            }}}
-            startIcon={<AddIcon />}
-            onClick={setDiary}
-          >
-            {diary == "" ? "Buat Diary" : "Reset Diary"}
-          </Button>
-          <TextField
-          inputProps={{ style: { color: "#f6f3f6" } }}
-            style={diary == "" ? { display: "none" } : {}}
-            id="filled-basic"
-            label="Diaryku"
-            variant="outlined"
-            multiline
-            fullWidth
-            sx={temaTulisan}
-            value={diary}
-            onChange={handleRadio}
-          />
-          <Button
-            style={diary == "" ? { display: "none" } : {}}
-            variant="contained"
-            aria-label="simpan"
-            sx={{backgroundColor: "#e38b7a", color: "#f6f3f6", "&:hover" : {
-                backgroundColor: "#f6f3f6", color: "#bd4b4b"
-            }}}
-            startIcon={<SaveIcon />}
-            onClick={() => {
-              const fullNama = "diary";
-              let nomorDiary = 1;
-              const simpanDiary = checkNama(fullNama, nomorDiary);
-              if (diary) {
-                localStorage.setItem(simpanDiary, diary);
-              }
-            }}
-          >
-            Simpan diary
-          </Button>
-        </Stack>
+        <Rating
+          name="simple-controlled"
+          value={valNo}
+          onChange={(event, newValue) => {
+            if (setNilai) {
+              setNilai(newValue);
+            }
+          }}
+          sx={{color: 'white', }}
+        />
       );
+      break;
+      case "panel4":
+        isiAkordia = 
+        <Hubungan 
+        VSatu="Besar banget 🤗🥰" 
+        VDua="Normal aja sih 😁" 
+        VTiga="Kecil, pgn lupain 😭" 
+        Value={Value} 
+        handleAlignment={handleAlignment} />;
+        break;
+      case "panel5":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Begini..."
+              variant="outlined"
+              multiline
+              fullWidth
+              sx={temaTulisan}
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel6":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Hmm?"
+              variant="outlined"
+              multiline
+              fullWidth
+              sx={temaTulisan}
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel7":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Tentu saja kamu meilih..."
+              variant="outlined"
+              multiline
+              fullWidth
+              sx={temaTulisan}
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel8":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Pernah?"
+              variant="outlined"
+              multiline
+              fullWidth
+              sx={temaTulisan}
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel9":
+        isiAkordia = (
+          <div>
+            <TextField
+            inputProps={{ style: { color: "#f6f3f6" } }}
+              id="filled-basic"
+              label="Ada nggak ya..."
+              variant="outlined"
+              multiline
+              fullWidth
+              sx={temaTulisan}
+              value={Value}
+              onChange={handleRadio}
+            />
+          </div>
+        );
+        break;
+      case "panel10":
+        isiAkordia = (
+          <Typography>
+            ingin dicinta tapi ternyata tidak sesuai ekspektasi 
+            Kamu keren banget
+          </Typography>
+        );
+    }
   }
 
   return (

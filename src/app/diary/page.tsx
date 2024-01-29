@@ -14,8 +14,8 @@ export default function Diary() {
         };
     return(
         <div style={{padding: '10px 10px 70px 10px'}} className='backgrund'  >
-            <ReactAudioPlayer src={'/hk-audio.mp3'} autoPlay={true} loop preload={'none'} />
-            <Akardia expanded={expanded} handleChange={handleChange} />
+            <ReactAudioPlayer src={'/audioPertemanan.mp3'} autoPlay={true} loop preload={'none'} />
+            <Akardia tema='persahabatan' expanded={expanded} handleChange={handleChange} />
             <Navigasi />
         </div>
     )
