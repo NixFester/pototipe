@@ -1,5 +1,7 @@
 import { Avatar } from "@mui/material";
 import { blue } from "@mui/material/colors";
+import FriendSVG from "../component/FriendSVG"
+import MarriageSVG from "../component/MarriageSVG"
 import "../styles/animation.css";
 import { FamilyRestroom, Favorite, Watch } from "@mui/icons-material";
 import Link from "next/link";
@@ -28,12 +30,12 @@ export default function LingkarKecil({hoverTouch,hoverEnd,dsdot,nomor}: {hoverTo
         case (4):
             namaKelas = "rumah empat"
             namaHover = "Pertemanan"
-            sources = "/pngwing.com.png"
+            isian = (<FriendSVG className="gede"/>)
             break
         default:
             namaKelas = "rumah lima"
             namaHover = "Pernikahan"
-            sources ="/kawin.png"
+            isian = (<MarriageSVG className="gede"/>)
     }
     return (
         <Link className={namaKelas}

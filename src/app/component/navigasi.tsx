@@ -4,23 +4,37 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import RestoreIcon from '@mui/icons-material/Restore';
 import HomeIcon from '@mui/icons-material/Home';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { Paper } from "@mui/material";
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 
-export default function Navigasi() {
-    const [navgat,setNavgat] = useState(1)
+import InfoIcon from '@mui/icons-material/Info';
+
+import { Paper, createTheme } from "@mui/material";
+
+export default function Navigasi({navGate= 1}: {navGate?: number}) {
+  
+    const [navgat,setNavgat] = useState(navGate)
     return(
-        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={5}>
+        <Paper sx={{backgroundColor: "#bd4b4b", position: 'fixed', bottom: 0, left: 0, right: 0 }} >
         <BottomNavigation
+        
           showLabels
           value={navgat}
           onChange={(event, newValue) => {
             setNavgat(newValue);
           }}
-          sx={{backgroundColor: "#FAFAF9",}}
+          
+          sx={{borderRadius: "15px 15px 0 0",backgroundColor: '#b46294',
+          "& .MuiBottomNavigationAction-root, svg": {
+            color: "#f6f3f6"},
+          "& .Mui-selected, .Mui-selected svg" : {
+            color :"#f6f3f6",
+            transform : "scale(1.1)",
+            fontStyle: "oblique"
+          }}}
         >
-          <BottomNavigationAction label="Jurnalku" icon={<RestoreIcon sx={{color: "#373954"}} />} color="#FAFAF9" href="/jurnal" />
+          <BottomNavigationAction label="Jurnalku" icon={<AutoStoriesIcon />} href="/diaryku" />
           <BottomNavigationAction label="Beranda" icon={<HomeIcon />} href="/" />
-          <BottomNavigationAction label="Archive" icon={<LocationOnIcon />} />
+          <BottomNavigationAction label="Tentang" icon={<InfoIcon />} href="/tentang" />
         </BottomNavigation>
       </Paper>
     )

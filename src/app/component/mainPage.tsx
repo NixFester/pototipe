@@ -1,14 +1,8 @@
 import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { Avatar, Box, Typography, BottomNavigation, BottomNavigationAction } from "@mui/material";
-import { blue } from "@mui/material/colors";
+import { Avatar, Typography,} from "@mui/material";
 import "../styles/animation.css";
 import LingkarKecil from "./LingkarKecil";
 import Stack from '@mui/material/Stack';
-import { Dispatch, SetStateAction } from "react";
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 export default function MainPage({
   klikDs,
@@ -56,14 +50,14 @@ export default function MainPage({
           >
              
             <Avatar
-              sx={{ bgcolor: "#373954" }}
+              sx={{ bgcolor: "#b46294" }}
               className={`ikonBesar ${dsdot ? "spinning" : ""}`}
 
             >
               <AssignmentRoundedIcon
                 className="gede2"
                 sx={{
-                  color: "#FAFAF9"
+                  color: "#f6f3f6"
                 }}
               />
             </Avatar>
@@ -75,27 +69,6 @@ export default function MainPage({
         <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={4} />
         <LingkarKecil hoverTouch={hoverTouch} hoverEnd={hoverEnd} dsdot={dsdot} nomor={5} />
           </div>
-        
-      
-      {/*
-      <Stack
-      direction="row"
-      justifyContent="center"
-      alignItems="center"
-      spacing={3}>
-        <NavigateNextIcon
-          style={{
-            transform: "scale(3) rotate(180deg)",
-            filter: "contrast(0)",
-          }}
-        />
-        <div>
-          
-        </div>
-        <NavigateNextIcon style={{ transform: "scale(3)" }} onClick={changee} />
-      </Stack>  
-        
-    */}
     </Stack>
   );
 }

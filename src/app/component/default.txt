@@ -12,7 +12,6 @@ export default function Jurnal() {
     }
     useEffect(()=>{
         let arrIni = []
-        let arrNomor = []
         let nomornya = 1
         while (localStorage.getItem(`diary${nomornya}`)) {
             arrIni.push(localStorage.getItem(`diary${nomornya}`))

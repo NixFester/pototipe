@@ -1,13 +1,21 @@
 /*
 DLL
 */
-
-chil
+:root {
+ --lima : #bd4b4b;
+ --empat : #b46294;
+ --tiga : #9d97af;
+ --dua : #e38b7a;
+ --satu :#f6f3f6;
+ --warnaGlow : rgba(180,98,148,0.9);
+}
+.backgrund {
+  background-color: var(--lima) !important;
+  color: var(--satu) !important; 
+}
 
 html {
   box-sizing: border-box;
-  background-color: #FAFAF9;
-  color: #373954;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -64,7 +72,7 @@ body {
 .dot {  
   height: 60px !important;
   width: 60px !important;
-  background-color: #A6A4A4 !important;
+  background-color: var(--empat) !important;
   color: #FAFAF9 !important;
 }
 .satu {
@@ -162,14 +170,14 @@ Animasi
 
 @keyframes glow {
   0% {
-    box-shadow: 0px 0px 10px 10px rgba(55,57,58,0.9);
+    box-shadow: 0px 0px 10px 20px var(--warnaGlow);
     transform:rotate(0deg);
   }
   50% {
-    box-shadow: 0px 0px 10px 0px rgba(55,57,58,0.9);
+    box-shadow: 0px 0px 10px 0px var(--warnaGlow);
   }
   100% {
-    box-shadow: 0px 0px 10px 10px rgba(55,57,58,0.9);
+    box-shadow: 0px 0px 10px 20px var(--warnaGlow);
     transform:rotate(360deg);
   }
 }

@@ -20,6 +20,7 @@ export default function HiScreen({keMainPage, onsec,onBs,bs,nama}:HiScreenObj) {
       style={{
         display: onsec && onBs ? "block" : "none",
         padding: "25vh 8%",
+        height: '100vh'
       }}
       onClick={keMainPage}
     >

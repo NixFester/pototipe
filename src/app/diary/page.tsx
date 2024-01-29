@@ -11,7 +11,7 @@ export default function Diary() {
         setExpanded(newExpanded ? panel : false);
         };
     return(
-        <div style={{padding: '10px 10px 70px 10px', backgroundColor : "#FAFAF9", color : "#373954"}}  >
+        <div style={{padding: '10px 10px 70px 10px'}} className='backgrund'  >
             <Akardia expanded={expanded} handleChange={handleChange} />
             <Navigasi />
         </div>

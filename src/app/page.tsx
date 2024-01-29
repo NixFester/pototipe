@@ -55,7 +55,8 @@ export default function Home() {
     const tgl = new Date()
     const tglKunjungan = localStorage.getItem('tgl')
     if (tglKunjungan && Number(tglKunjungan) < tgl.getHours()) {
-        localStorage.removeItem('tgl')
+        console.log("lebih kecil");
+        
     } else if (tglKunjungan && Number(tglKunjungan) >= tgl.getHours()) {
       setBs(false)
       setAs(false)
