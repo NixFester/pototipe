@@ -13,11 +13,19 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Value } from 'sass';
 import { useRouter } from 'next/navigation';
+import { useEffect } from "react";
+import { App } from '@capacitor/app'
 
 function Copyright(props: any) {
+  useEffect(() => {
+    App.addListener('appUrlOpen', (event) => {
+      const slug = event.url.split('.app').pop()
+      if (slug)
+        window.location.href = slug
+
+    })
+  }, [])
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}

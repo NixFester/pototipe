@@ -6,6 +6,7 @@ import StartIcon from "./component/StartIcon";
 import HiScreen from "./component/HiScreen";
 import Navigasi from "./component/navigasi";
 import { Paper } from "@mui/material";
+import { App } from '@capacitor/app'
 
 export default function Home() {
   const [as, setAs] = useState(true);
@@ -48,6 +49,12 @@ export default function Home() {
   }
 
   useEffect(() => {
+    App.addListener('appUrlOpen', (event) => {
+      const slug = event.url.split('.app').pop()
+      if (slug)
+        window.location.href = slug
+    })
+    
     const namabuat = localStorage.getItem("nama");
     if (namabuat) {
       setNama(namabuat);
@@ -63,6 +70,7 @@ export default function Home() {
       setOnBs(false)
       Setonsec(true)
     }
+
     
   }, []);
 

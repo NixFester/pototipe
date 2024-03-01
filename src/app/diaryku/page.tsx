@@ -4,8 +4,17 @@ import Jurnalnya from "../component/Jurnalnya"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import '../styles/animation.css'
+import { App } from '@capacitor/app'
 
 export default function Jurnal() {
+    useEffect(() => {
+        App.addListener('appUrlOpen', (event) => {
+          const slug = event.url.split('.app').pop()
+          if (slug)
+            window.location.href = slug
+    
+        })
+      }, [])
     const [diaryArr,setDiaryArr] = useState<(string|null)[]>()
     const router = useRouter()
     const Refresh = ()=>{

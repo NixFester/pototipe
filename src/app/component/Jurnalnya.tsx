@@ -15,6 +15,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
 import { useState } from "react";
+import { deepPurple } from '@mui/material/colors';
 
 export default function Jurnalnya({
   isiDiary,
@@ -112,8 +113,8 @@ export default function Jurnalnya({
         <Stack display={kondisi ? "" : "none"}>
           <Paper elevation={5}>
             <Stack divider={<Divider orientation="horizontal" flexItem />}>
-              <Typography variant="h6" textAlign={"center"}>
-                Curhat Yuk! Ke Ahlinya
+              <Typography textAlign={"center"}>
+                Curhat Yuk!
               </Typography>
               <Paper sx={{ padding: "10px" }} >
                 <Stack
@@ -121,11 +122,13 @@ export default function Jurnalnya({
                   justifyContent="space-between"
                   alignItems="center"
                 >
-                  <Avatar src="/Prof.jpg" />
+                  <Avatar sx={{ bgcolor: deepPurple[500],}}>
+                    K
+                  </Avatar>
                   <Stack>
-                    <Typography>Dwi Ayu R.</Typography>
+                    <Typography>Kartika Dwi Hapsari</Typography>
                     <Typography variant={"caption"}>
-                      Profesional Kesehatan mental
+                      Duta Kesehatan Mental Dandiah Care
                     </Typography>
                   </Stack>
                   <IconButton aria-label="kontak" href={kirimIsiJuga?`https://wa.me/6281290167102?text=${encodeURI(isiDiary)}`:"https://wa.me/6281290167102"}>

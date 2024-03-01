@@ -1,10 +1,20 @@
 "use client";
 import "../styles/animation.css";
 import Navigasi from "../component/navigasi";
-import Divider from "@mui/material/Divider";
 import { Paper, Typography, Box, Stack } from "@mui/material";
+import { useEffect } from "react";
+import { App } from '@capacitor/app'
 
 export default function Tentang() {
+  useEffect(() => {
+    App.addListener('appUrlOpen', (event) => {
+      const slug = event.url.split('.app').pop()
+      if (slug)
+        window.location.href = slug
+
+    })
+  }, [])
+  
   return (
     <Box
       display="flex"

@@ -29,6 +29,7 @@ export default function LingkarKecil({hoverTouch,hoverEnd,dsdot,nomor}: {hoverTo
             namaKelas = "rumah tiga"
             namaHover = "Masa Depan"
             isian =  (<Watch className="gede" />)
+            href = '/masadepan'
             break
         case (4):
             namaKelas = "rumah empat"
@@ -40,6 +41,7 @@ export default function LingkarKecil({hoverTouch,hoverEnd,dsdot,nomor}: {hoverTo
             namaKelas = "rumah lima"
             namaHover = "Pernikahan"
             isian = (<MarriageSVG className="gede"/>)
+            href = '/pernikahan'
     }
     return (
         <Link className={namaKelas}

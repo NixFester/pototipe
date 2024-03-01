@@ -7,7 +7,7 @@ import ReactAudioPlayer from 'react-audio-player';
 import { useEffect } from "react";
 import { App } from '@capacitor/app'
 
-export default function Diary() {
+export default function Pernikahan() {
     const [expanded, setExpanded] = useState<string | false>('panel1');
     const handleChange =
         (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -23,8 +23,8 @@ export default function Diary() {
           }, [])
     return(
         <div style={{padding: '10px 10px 70px 10px'}} className='backgrund'  >
-            <ReactAudioPlayer src={'/audioKeluarga.mp3'} autoPlay={true} loop preload={'none'} />
-            <Akardia tema='keluarga' expanded={expanded} handleChange={handleChange} />
+            <ReactAudioPlayer src={'/audioMasdes.mp3'} autoPlay={true} loop preload={'none'} />
+            <Akardia tema='pernikahan' expanded={expanded} handleChange={handleChange} />
             <Navigasi />
         </div>
     )

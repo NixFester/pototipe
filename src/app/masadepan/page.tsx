@@ -24,7 +24,7 @@ export default function Diary() {
     return(
         <div style={{padding: '10px 10px 70px 10px'}} className='backgrund'  >
             <ReactAudioPlayer src={'/audioKeluarga.mp3'} autoPlay={true} loop preload={'none'} />
-            <Akardia tema='keluarga' expanded={expanded} handleChange={handleChange} />
+            <Akardia tema='MasDes' expanded={expanded} handleChange={handleChange} />
             <Navigasi />
         </div>
     )
