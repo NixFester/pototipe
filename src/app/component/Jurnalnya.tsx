@@ -122,9 +122,7 @@ export default function Jurnalnya({
                   justifyContent="space-between"
                   alignItems="center"
                 >
-                  <Avatar sx={{ bgcolor: deepPurple[500],}}>
-                    K
-                  </Avatar>
+                  <Avatar src="/Ahli.jpg"/>
                   <Stack>
                     <Typography>Kartika Dwi Hapsari</Typography>
                     <Typography variant={"caption"}>
